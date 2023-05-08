@@ -6,6 +6,10 @@ In the project directory, you can run:
 ### `npm run dev`
  
 ```bash
+
+api/snake/validate
+
+
 {
   "gameState": {
     "width": 15,
