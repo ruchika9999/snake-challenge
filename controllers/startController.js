@@ -2,8 +2,7 @@ const express = require("express");
 const { generateGameId } = require("../utils/helper");
 
 const newSnake = (req, res) => {
-
-  
+// Get game width and height from query parameters
   const width = parseInt(req.query.w);
   const height = parseInt(req.query.h);
   // Generate random fruit position

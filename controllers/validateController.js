@@ -13,6 +13,9 @@ const validate = (req, res, next) => {
   // Get the game state and ticks from the request body
   const { gameState, ticks } = req.body;
 
+  // Create a copy of the game state
+  // will update this copy and return it as the new game state
+
   const state = { ...gameState };
 
   // Check if the next move is valid
@@ -51,6 +54,7 @@ const validate = (req, res, next) => {
   } else {
     // If the snake has not reached the fruit, remove the
     //last position and add the new head to the positions array
+
     state.snakePositions.pop();
     state.snakePositions.unshift(newHead);
   }
