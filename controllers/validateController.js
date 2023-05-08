@@ -23,6 +23,7 @@ const validate = (req, res, next) => {
   const newVelocity = calculateNewVelocity(currentVelocity, ticks[0]);
 
   if (isInvalidMove(newVelocity)) {
+    // Return a 400 error if the move is invalid
     return res.status(error.ERROR_400.CODE).send(error.ERROR_400.MESSAGE);
   }
 
@@ -54,7 +55,6 @@ const validate = (req, res, next) => {
   } else {
     // If the snake has not reached the fruit, remove the
     //last position and add the new head to the positions array
-
     state.snakePositions.pop();
     state.snakePositions.unshift(newHead);
   }
@@ -63,6 +63,7 @@ const validate = (req, res, next) => {
   if (isPositionColliding(state.snakePositions, newHead)) {
     // Set the game state to be game over and return a 418 error
     state.isGameOver = true;
+    // Return a 418 error if the snake is colliding with itself
     return res.status(error.ERROR_418.CODE).send(error.ERROR_418.MESSAGE);
   }
 

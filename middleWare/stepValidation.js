@@ -13,7 +13,6 @@ const stepValidate = (req, res, next) => {
   // Check if the request method is POST
   if (req.method !== "POST") {
     // Return a 405 error if the request method is not POST
-    // return res.status(error.ERROR_405.CODE).send(error.ERROR_405.MESSAGE);
     return throwError(error.ERROR_405.MESSAGE, error.ERROR_405.CODE, next);
   }
 
